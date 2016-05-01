@@ -1,4 +1,8 @@
 # Telluride
+Telluride is a rewrite of massover's Dolla Back Girl app in Elixir. Dolla Back Girl is an app that intends to identify recurring transactions and cancel them for you. 
+
+
+## Development
 
 To start your Phoenix app:
 
