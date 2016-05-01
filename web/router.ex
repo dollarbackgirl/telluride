@@ -20,7 +20,7 @@ defmodule Telluride.Router do
   end
 
   scope "/api", Telluride do
-    pipe_through :browser
+    pipe_through :api
 
     get "/auth", ApiController, :auth
   end
