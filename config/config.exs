@@ -27,3 +27,15 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+config :xain, :quote, "'"
+config :xain, :after_callback, {Phoenix.HTML, :raw}
+
+config :ex_admin,
+  repo: Telluride.Repo,
+  module: Telluride,
+  modules: [
+    Telluride.ExAdmin.Dashboard,
+    Telluride.ExAdmin.Transaction,
+  ]
+

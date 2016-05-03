@@ -37,7 +37,9 @@ defmodule Telluride.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:httpoison, "~> 0.8.3"}]
+     {:httpoison, "~> 0.8.3"},
+     {:ex_admin, "~> 0.7"},
+     {:scrivener, "~> 1.0"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
