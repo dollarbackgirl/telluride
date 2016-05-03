@@ -1,5 +1,6 @@
 defmodule Telluride.Router do
   use Telluride.Web, :router
+  use ExAdmin.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -23,6 +24,12 @@ defmodule Telluride.Router do
     pipe_through :api
 
     get "/auth", ApiController, :auth
+  end
+
+  # your app's routes
+  scope "/admin", ExAdmin do
+    pipe_through :browser
+    admin_routes
   end
 
   # Other scopes may use custom stacks.
