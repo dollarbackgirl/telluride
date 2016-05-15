@@ -1,5 +1,5 @@
 defmodule Plaid.Api do
-  import Plaid.User
+  import Plaid.Types.User
 
   @moduledoc """
   iex(3)> user = %Plaid.User{username: "plaid_test", password: "plaid_good"}
@@ -18,15 +18,17 @@ defmodule Plaid.Api do
 
   def start, do: Plaid.Client.start
 
-  def connect(%Plaid.User{}=user) do
-    Plaid.Client.post("/connect", "", [], [params: merge_params(user)])
+  def connect() do
+    Plaid.Client.post("/connect", "", [], [params: merge_params(Plaid.Types.User.get_user)])
   end
 
-  defp merge_params(%Plaid.User{} = user) do
-    merge_test = &Keyword.merge(@testParams, &1) # Partial function application
-
+  defp merge_params(%Plaid.Types.User{} = user) do
     Map.from_struct(user)
-      |> Map.to_list
-      |> merge_test.() # Elixir has weird syntax for applying anonymous functions
+    |> Map.to_list
+    |> merge_test
+  end
+
+  defp merge_test(params) do
+    Keyword.merge(@testParams, params)
   end
 end
