@@ -38,7 +38,7 @@ defmodule Telluride.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:httpoison, "~> 0.8.3"},
-     {:ex_admin, "~> 0.7"},
+     {:ex_admin, "~> 0.7.6"},
      {:scrivener, "~> 1.0"}]
   end
 
